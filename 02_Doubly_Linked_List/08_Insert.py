@@ -21,7 +21,7 @@ class DoublyLinkedList:
             print(temp.value)
             temp = temp.next
 
-
+    # For Appending node in DLL
     def append(self, value):
         new_node = Node(value)
         # If Doubly LL is empty
@@ -35,6 +35,22 @@ class DoublyLinkedList:
             self.tail = new_node
         self.length += 1
         return True
+    
+    
+    # For prepending node in DLL
+    def prepend(self, value):
+        new_node = Node(value)
+        # If DLL is empty
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        # If DLL is not empty
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+        self.length += 1
+        return True 
     
     
     def get(self, index):
